@@ -13,10 +13,11 @@ class User {
     email: string;
     @union("programmer", "developer", 'employee')
     job: string;
-    @custom((v) => {
+    @isNumber()
+    @custom((v: Number) => {
         return v > 3
     })
-    experience;
+    experience: Number;
 }
 
 class UserController {
